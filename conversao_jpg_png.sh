@@ -25,7 +25,7 @@ converte_imagem(){
 
 cd ~/$1/$2
 
-converte_image 2> erros_conversao.txt
+converte_imagem 2> erros_conversao.txt
 
 if [ $? -eq 0 ]
 then
