@@ -24,11 +24,11 @@ do
 done
 }
 
-converte_imagem
+converte_imagem 2> erros_conversao.txt
 
 if [ $? -eq 0 ]
 then
 	echo "Conversao realizada com sucesso"
 else
-	echo "Houve uma falha na processo"
+	echo "Houve uma falha na processo, logs de erros no arquivo erros_conversao.txt"
 fi
