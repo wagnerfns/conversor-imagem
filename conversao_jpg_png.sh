@@ -1,30 +1,31 @@
 #!/bin/bash
 
 converte_imagem(){
-cd ~/Downloads/imagens-livros
+	
+	sleep 2
 
-sleep 2
+	echo "Verificando se existe pasta png, se nao cria uma pasta"
+	sleep 2
 
-echo "Verificando se existe pasta png, se nao cria uma pasta"
-sleep 2
+	if [ ! -d png ]
+	then
+		mkdir png
+	fi
 
-if [ ! -d png ]
-then
-	mkdir png
-fi
+	echo "Convertendo imagens .jpg para .png"
+	sleep 3
 
-echo "Convertendo imagens .jpg para .png"
-sleep 3
+	for imagem in *.jpg
+	do 
+		local imagem_sem_extensao=$(ls $imagem | awk -F. '{ print $1 }')
 
-for imagem in *.jpg
-do 
-	local imagem_sem_extensao=$(ls $imagem | awk -F. '{ print $1 }')
-
-	convert $imagem_sem_extensao.jpg png/$imagem_sem_extensao.png
-done
+		convert $imagem_sem_extensao.jpg png/$imagem_sem_extensao.png
+	done
 }
 
-converte_imagem 2> erros_conversao.txt
+cd ~/$1/$2
+
+converte_image 2> erros_conversao.txt
 
 if [ $? -eq 0 ]
 then
