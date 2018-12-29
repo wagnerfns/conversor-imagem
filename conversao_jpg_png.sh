@@ -1,5 +1,6 @@
 #!/bin/bash
 
+converte_imagem(){
 cd ~/Downloads/imagens-livros
 
 sleep 2
@@ -21,3 +22,6 @@ do
 
 	convert $imagem_sem_extensao.jpg png/$imagem_sem_extensao.png
 done
+}
+
+converte_imagem
